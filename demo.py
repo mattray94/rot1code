@@ -61,6 +61,27 @@ If you are looking to clone a repository that your lab group works on, clone it 
 
 $git clone https://github.com/DeaneGroup/abb.git .		#clones the git repo 'abb.git' from the DeaneGroup github page, and sends it to your pwd
 
+Now, say you make a change to your demo.py file and save that change.
+
+$git add demo.py
+$git commit demo.py -m "Made changes to ..... "
+
+And now good practise is to first PULL before you PUSH (in case other users have changed code in this shared folder since you last synced!)
+
+$git pull origin master		#will either tell you no changes or will update
+$git push origin master		#pushes changes from your local to your remote repo.
+
+--------------
+BRANCHES
+
+It is not good practise to work on the master branch. A typical workflow should involve starting a new branch for the day's changes.
+
+$git branch				#lists current branches. Branch in green with an asterix is the one you are currently working in.
+$git branch nameofnewbranch		#creates a new branch
+$git checkout nameofnewbranch		#switches to working on the new branch
+
+Now start working on the changes you want to make to your files.
+
 '''
 print("Open this file for notes on how to use Git!")
 
