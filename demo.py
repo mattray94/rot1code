@@ -41,6 +41,26 @@ To commit files into the repository, first stage them, then run a commit command
 $git add -A				#adds all to staging area
 $git commit -m "Initial Commit"		#commits all to repository with the message "Initial Commit". Use the message to document commit individual code files with detailed changes.
 
+$git status				#will now show a clean working directory
+$git log				#shows the history of commits, along with the hash number (unique ID)
+
+To sync this repository to a github repository, simply log into github, create a repository with a name (eg. rot1code.git). Now at the command line type:
+
+$git remote add origin https://github.com/mattray94/rot1code.git
+
+Then push the current committed files to that remote repository!
+
+$git push -u origin master
+
+Looking back at github.com should show these the remote repository having the currently committed files from the master branch within it.
+
+$git remote -v		#tells us where the remote repo is located - ensure it points to the right place
+$git branch -a		#lists all the branches
+
+If you are looking to clone a repository that your lab group works on, clone it with the syntax $git clone <url> <wheretocloneittolocally> (note the <url> could be a local address). eg:
+
+$git clone https://github.com/DeaneGroup/abb.git .		#clones the git repo 'abb.git' from the DeaneGroup github page, and sends it to your pwd
+
 '''
 print("Open this file for notes on how to use Git!")
 
