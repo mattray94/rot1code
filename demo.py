@@ -76,11 +76,31 @@ BRANCHES
 
 It is not good practise to work on the master branch. A typical workflow should involve starting a new branch for the day's changes.
 
-$git branch				#lists current branches. Branch in green with an asterix is the one you are currently working in.
+$git branch				#lists current branch
+$git branch -a				#lists all branches. Branch in green with an asterix is the one you are currently working in.
 $git branch nameofnewbranch		#creates a new branch
 $git checkout nameofnewbranch		#switches to working on the new branch
 
-Now start working on the changes you want to make to your files.
+Now start working on the changes you want to make to your files. Then add, commit as before. Then to push this to the remote repo as a new branch use...
+
+$git push -u origin nameofnewbranch	#using the -u argument means that these two locations become connected. In the future a simple git pull/git push command is sufficient to update to this location.
+$git branch -a				#shows local branches in white and 1 in green (for current working branch) and will now show the new branch alongside master in the remote repo (in red)
+
+Why bother with branches? Really handy for unit testing on code snippets prior to merging it to the master branch. If these unit tests go well, and you want to merge that branch with the master thread, use the following commands:
+
+$git checkout master		#switches to master branch
+$git pull origin master		#good practice in case changes made by others in the interim
+$git branch --merged		#will at this stage only show the master branch as nameofnewbranch has not been merged into the master branch yet!
+$git merge nameofnewbranch	#merges nameofnewbranch into the master branch
+$git push origin master		#pushes the changes to the master change from local to remote repo!
+
+Having taken advantage of our new branch for unit testing, now we should tidy up and delete it:
+
+$git branch --merged				#shows master and nameofnewbranch
+$git branch -d nameofnewbranch			#locally deletes this branch
+$git branch -a					#local version of nameofnewbranch has gone (was white) but remote version is still there (red)
+$git push origin --delete nameofnewbranch	#deletes it from the remote repo too!
+$git branch -a					#now gone from both :)
 
 '''
 print("Open this file for notes on how to use Git!")
