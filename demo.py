@@ -1,5 +1,7 @@
 '''
 I am using this fie to practise using GitHub for version control
+--------------
+GETTING STARTED
 
 In order to track a folder with Git use the command $git init once in the folder. This creates a .git directory. Remove this directory to stop tracking.
 
@@ -19,12 +21,16 @@ Creates a .gitignore file. Open up in a text editor and add the files you do not
 
 Having saved this file, rerun git status and you will see that the files/folders you have put into git ignore will no longer be visible, and so will not be tracked. Simply remove them from the .gitignore file to go back.
 
+--------------
+WORKING DIRECTORY, ADD, COMMIT
+
 There are three 'levels' at which github works. The working directory, where changes are made locally on the machine. The staging area, where we fix files we have changed ready to be uplaoded to github, and finally the .git directory, which is the synced online repository to which files must be committed.
 
 To add a file to the staging area (for example demo.py) use:
 
 $git add demo.py	#adds a specific python file to the staging area
-$git add .gitignore	#adds the .gitignore file to the staging area
+$git add .gitignore	#adds the .g--------------
+BRANCHESitignore file to the staging area
 $git add -A		#adds all current untracked files to the staging area
 
 Now running $git status shows us staged files which are ready to be committed in green, as well as the untracked files in red.
@@ -43,6 +49,9 @@ $git commit -m "Initial Commit"		#commits all to repository with the message "In
 
 $git status				#will now show a clean working directory
 $git log				#shows the history of commits, along with the hash number (unique ID)
+
+--------------
+UPDATING REMOTE (ONLINE) GITHUB REPOSITORY
 
 To sync this repository to a github repository, simply log into github, create a repository with a name (eg. rot1code.git). Now at the command line type:
 
